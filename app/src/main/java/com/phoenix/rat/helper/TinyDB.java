@@ -29,5 +29,13 @@ public class TinyDB {
         preferences.edit().putString(key, TextUtils.join("‚‗‚", myStringList)).apply();
     }
 
+    public void putBoolean(String key, boolean value){
+        preferences.edit().putBoolean(key, value).apply();
+    }
+
+    public boolean getBoolean(String key){
+        return preferences.getBoolean(key, false);
+    }
+
 }
 

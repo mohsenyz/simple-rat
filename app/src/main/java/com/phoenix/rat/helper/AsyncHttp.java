@@ -51,7 +51,6 @@ public class AsyncHttp extends AsyncTask<Void, Void, String> {
             }
 
             if (buffer.length() == 0) {
-                Log.d("null", "zddzndhsrhsrhrh");
                 return null;
             }
             return buffer.toString();

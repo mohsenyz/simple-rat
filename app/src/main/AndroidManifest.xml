@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -32,7 +33,14 @@
         <service
             android:name=".services.HttpSenderService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <receiver
+            android:name=".broadcasts.BootEventReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+        </receiver>
     </application>
 
 </manifest>
